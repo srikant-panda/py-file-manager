@@ -39,7 +39,7 @@ py-file-manager/
 └── Operations/
 ├── init.py # Package initializer
 └── operation.py # Core filesystem functions (os/shutil wrappers)
-
+```
 ---
 
 ## 🛠️ Requirements
