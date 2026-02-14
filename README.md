@@ -29,7 +29,7 @@ This project is mainly built for learning filesystem operations and command pars
 
 ## 📂 Project Structure
 
-
+```bash
 
 py-file-manager/
 │
@@ -39,24 +39,6 @@ py-file-manager/
 └── Operations/
 ├── init.py # Package initializer
 └── operation.py # Core filesystem functions (os/shutil wrappers)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ---
 
