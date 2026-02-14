@@ -41,6 +41,23 @@ py-file-manager/
 └── operation.py # Core filesystem functions (os/shutil wrappers)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 ## 🛠️ Requirements
