@@ -3,39 +3,38 @@ from Operation import operation as op
 print('______________File Manager_______________')
 
 
-default_path= '/home/s-fedora/'
+default_path= f'/home/{op.os.getenv('USER')}/'
 pathIndecator = '~'
 op.cd(default_path)
 while True:
-    command = input(f'{pathIndecator}$ ')   # For showing the current path as messanf in before input like if cwd is /home it shows '/home$ '
+    command = input(f'{pathIndecator}$ ')   # For showing the current path as prefix  before input like if cwd is /home it shows '/home$ '
     filepath= command.split(' ')
     if filepath[0] == 'cd':
         try:
             status=op.cd(filepath[1])
-            if status.startswith('/home/s-fedora'):
-                temp = status.split('/')
-                pathIndecator = f'~{temp[3]}'
+            if status.startswith(f'{default_path}'):
+                temp = status.split(default_path)
+                pathIndecator = f'~{temp[-1]}'
                 continue
             else:
                 pathIndecator = status
                 continue
         except IndexError:
-            # print(filepath[1])
-            status=op.cd('/home/s-fedora/')
+            status=op.cd(f'{default_path}')
             pathIndecator = '~'
             continue
         except FileNotFoundError:
             if len(filepath) >2:
                 print(f'python: cd: too many aruments') 
                 continue   
-            elif filepath[1] == '~':
-                status=op.cd('/home/s-fedora/')
+            elif filepath[-1] == '~':
+                status=op.cd(f'{default_path}')
                 pathIndecator = '~'
                 continue
             else:
-                print(f'cd: {filepath[1]}: No such file or directory')
-        # except PermissionError:
-        #     print('python: this need root access.')
+                print(f'cd: {filepath[-1]}: No such file or directory')
+        except PermissionError:
+            print('python: this need root access.')
     elif filepath[0] == 'ls':
         try:
             if filepath[1] == '-a':
@@ -133,7 +132,14 @@ while True:
             else:
                 op.copydir(filepath[-2],filepath[-1])
         except FileNotFoundError:
-            print(f'cp: cannot stat {filepath[-2]}: No such file or directory')
+            print(f'cp: cannot copy {filepath[-2]}: No such file or directory')
+    elif filepath[0] =='mv':
+        try:
+            op.movefile(filepath[-2],filepath[-1])
+        except FileNotFoundError:
+            print(f'mv: cannot copy {filepath[-2]}: No such file or directory')
+        # except FileExistsError:
+        #     for i in 
 
 
     else:

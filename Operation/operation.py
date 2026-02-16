@@ -22,3 +22,5 @@ def copyfile(src,dst):
     shutil.copy2(src,dst)
 def copydir(src,dst):
     shutil.copytree(src,dst)
+def movefile(src,dst):
+    shutil.move(src,dst)
