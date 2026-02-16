@@ -1,13 +1,4 @@
 
-py-file-manager/
-│
-├── main.py
-├── README.md
-│
-└── Operations/
-    ├── __init__.py
-    └── operation.py
-
 # Py File Manager 🗂️🐍
 
 A simple **Linux-style CLI File Manager** built using Python.  
@@ -38,7 +29,7 @@ This project is mainly built for learning filesystem operations and command pars
 
 ## 📂 Project Structure
 
-
+```bash
 
 py-file-manager/
 │
@@ -48,8 +39,7 @@ py-file-manager/
 └── Operations/
 ├── init.py # Package initializer
 └── operation.py # Core filesystem functions (os/shutil wrappers)
-
-
+```
 ---
 
 ## 🛠️ Requirements
